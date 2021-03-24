@@ -87,6 +87,7 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	}
 
 	ngAfterViewInit() {
+		console.log('ngAfterViewInit');
 		if( this.config ) {
 			Object.assign( this.defaultFlatpickrOptions, this.config );
 		}
@@ -99,6 +100,8 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	}
 
 	ngOnChanges( changes: SimpleChanges ) {
+		console.log('ngOnChanges');
+		console.log(changes);
 		if( this.flatpickrElement.nativeElement 
 			&& this.flatpickrElement.nativeElement._flatpickr ) {
 				
