@@ -1,7 +1,8 @@
-import { AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
+import { EventEmitter, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { FlatpickrOptions } from './flatpickr-options.interface';
 export declare class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccessor, OnChanges {
+    newDateSelected: EventEmitter<any>;
     flatpickr: Object;
     private _tabindex;
     onTouchedFn: Function;

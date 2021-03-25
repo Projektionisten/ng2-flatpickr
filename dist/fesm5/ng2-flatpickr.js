@@ -1,21 +1,27 @@
+import flatpickr from 'flatpickr';
 import { __decorate } from 'tslib';
-import { ViewChild, Input, Component, forwardRef, EventEmitter, ElementRef, Renderer2, Output, HostListener, Directive, NgModule } from '@angular/core';
+import { EventEmitter, Output, ViewChild, Input, Component, forwardRef, ElementRef, Renderer2, HostListener, Directive, NgModule } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NgControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import 'flatpickr';
 
 if (typeof window !== 'undefined') {
-    require('flatpickr');
+    
 }
 var Ng2FlatpickrComponent = /** @class */ (function () {
     function Ng2FlatpickrComponent() {
         var _this = this;
+        this.newDateSelected = new EventEmitter();
         this._tabindex = 0;
         this.onTouchedFn = function () { };
         this.defaultFlatpickrOptions = {
             wrap: true,
             clickOpens: true,
-            onChange: function (selectedDates) { _this.writeValue(selectedDates); }
+            onChange: function (selectedDates) {
+                console.log('selectged Date changed');
+                console.log(selectedDates);
+                _this.writeValue(selectedDates);
+                _this.newDateSelected.emit(selectedDates);
+            }
         };
         this.placeholder = "";
         this.addClass = "";
@@ -47,6 +53,7 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
         this.flatpickrElement.nativeElement._flatpickr.altInput.setAttribute('placeholder', placeholder);
     };
     Ng2FlatpickrComponent.prototype.ngAfterViewInit = function () {
+        console.log('ngAfterViewInit');
         if (this.config) {
             Object.assign(this.defaultFlatpickrOptions, this.config);
         }
@@ -58,6 +65,8 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
         }
     };
     Ng2FlatpickrComponent.prototype.ngOnChanges = function (changes) {
+        console.log('ngOnChanges');
+        console.log(changes);
         if (this.flatpickrElement.nativeElement
             && this.flatpickrElement.nativeElement._flatpickr) {
             if (changes.hasOwnProperty('setDate')
@@ -75,6 +84,9 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
         this.onTouchedFn();
     };
     var Ng2FlatpickrComponent_1;
+    __decorate([
+        Output()
+    ], Ng2FlatpickrComponent.prototype, "newDateSelected", void 0);
     __decorate([
         ViewChild('flatpickr', {
             static: true
