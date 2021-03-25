@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit, forwardRef, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { EventEmitter, Output,Component, ViewChild, AfterViewInit, forwardRef, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FlatpickrOptions } from './flatpickr-options.interface';
 
@@ -26,8 +26,9 @@ if(typeof window !== 'undefined'){
 })
 export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccessor, OnChanges {
 
-  	public flatpickr: Object;
-  	private _tabindex = 0;
+  @Output() newDateSelected = new EventEmitter<any>();
+	public flatpickr: Object;
+	private _tabindex = 0;
 	onTouchedFn: Function = () => { };
 
 	private defaultFlatpickrOptions: FlatpickrOptions = {
@@ -36,7 +37,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 		onChange: ( selectedDates: any ) => { 
 			console.log('selectged Date changed');
 			console.log(selectedDates);
-			this.writeValue( selectedDates ); }
+			this.writeValue( selectedDates ); 
+			this.newDateSelected.emit(selectedDates);
+		}
 	};
 
 	@ViewChild('flatpickr', {
