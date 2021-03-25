@@ -353,7 +353,7 @@
         Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = __decorate([
             core.Component({
                 selector: 'ng2-flatpickr',
-                template: "\n\t\t<div class=\"ng2-flatpickr-input-container\" #flatpickr>\n\t\t\t<input *ngIf=\"!hideButton\" class=\"ng2-flatpickr-input {{ addClass }}\" [placeholder]=\"placeholder\" [tabindex]=\"tabindex\" type=\"text\" (focus)=\"onFocus($event)\" data-input>\n\t\t\t<ng-content></ng-content>\n\t\t</div>\n\t\t",
+                template: "\n\t\t<div class=\"ng2-flatpickr-input-container\" #flatpickr>\n\t\t\t<input *ngIf=\"!hideButton\" class=\"ng2-flatpickr-input {{ addClass }}\" [placeholder]=\"placeholder\" [tabindex]=\"tabindex\" type=\"text\" (focus)=\"onFocus($event)\" data-input>\n\t\t\t<input *ngIf=\"hideButton\" maxLength=\"4\" class=\"ng2-flatpickr-input {{ addClass }}\" [placeholder]=\"placeholder\" [tabindex]=\"tabindex\" type=\"text\" (focus)=\"onFocus($event)\" data-input>\n\t\t\t\t\t\t\t\t\n\t\t\t<ng-content></ng-content>\n\t\t</div>\n\t\t",
                 providers: [
                     {
                         provide: forms.NG_VALUE_ACCESSOR,
