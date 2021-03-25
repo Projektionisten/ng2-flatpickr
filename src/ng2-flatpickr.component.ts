@@ -33,7 +33,10 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	private defaultFlatpickrOptions: FlatpickrOptions = {
 		wrap: true,
 		clickOpens: true,
-		onChange: ( selectedDates: any ) => { this.writeValue( selectedDates ); }
+		onChange: ( selectedDates: any ) => { 
+			console.log('selectged Date changed');
+			console.log(selectedDates);
+			this.writeValue( selectedDates ); }
 	};
 
 	@ViewChild('flatpickr', {
