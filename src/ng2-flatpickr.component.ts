@@ -13,7 +13,7 @@ if(typeof window !== 'undefined'){
 	template: `
 		<div class="ng2-flatpickr-input-container" #flatpickr>
 			<input *ngIf="!hideButton" class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" (focus)="onFocus($event)" data-input>
-			<input *ngIf="hideButton" maxLength="4" class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" (focus)="onFocus($event)" data-input>
+			<input *ngIf="hideButton" maxLength="5" class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" (focus)="onFocus($event)" data-input>
 								
 			<ng-content></ng-content>
 		</div>
