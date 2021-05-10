@@ -102,9 +102,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 		if( this.flatpickrElement.nativeElement.flatpickr ) {
 			this.flatpickr = this.flatpickrElement.nativeElement.flatpickr( this.defaultFlatpickrOptions );
 		}
-		if( this.setDate ) {
-			this.setDateFromInput( this.setDate );
-		}
+		//if( this.setDate ) {
+			//this.setDateFromInput( this.setDate );
+		//}
 	}
 
 	ngOnChanges( changes: SimpleChanges ) {

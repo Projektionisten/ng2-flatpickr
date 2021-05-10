@@ -60,9 +60,9 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
         if (this.flatpickrElement.nativeElement.flatpickr) {
             this.flatpickr = this.flatpickrElement.nativeElement.flatpickr(this.defaultFlatpickrOptions);
         }
-        if (this.setDate) {
-            this.setDateFromInput(this.setDate);
-        }
+        //if( this.setDate ) {
+        //this.setDateFromInput( this.setDate );
+        //}
     };
     Ng2FlatpickrComponent.prototype.ngOnChanges = function (changes) {
         console.log('ngOnChanges');
