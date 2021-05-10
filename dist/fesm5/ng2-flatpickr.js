@@ -76,7 +76,7 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
             if (this.config.altInput
                 && changes.hasOwnProperty('placeholder')
                 && changes['placeholder'].currentValue) {
-                this.setAltInputPlaceholder(changes['placeholder'].currentValue);
+                this.setAltInputPlaceholder(changes['setDate'].currentValue);
             }
         }
     };
